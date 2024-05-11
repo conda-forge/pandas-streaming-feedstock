@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/sdpython/pandas_streaming/archive/refs/tags/v175.tar.gz  # unfortunately the GitHub tags do not match the PyPI tags and the PyPI release doesn't contain an sdist
-  sha256: 9d08acc7d5a87f3da6d66a3ad8728bdba2499d4cccdbb9720a4aa2b7f86f6d4a
+  sha256: 8ba8a6a0665d8552113609d19080f2c7af2b2145929f127cb5b9593160fe75b2
 
 build:
   number: 4

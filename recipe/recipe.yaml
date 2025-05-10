@@ -1,0 +1,44 @@
+schema_version: 1
+
+context:
+  name: pandas-streaming
+  version: 0.5.1
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pandas_streaming-${{ version }}.tar.gz
+  sha256: ad34c07cd271ea43832962f9eef9e16b3b8cd281748a55de95c2719fc7f7aae9
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python >=3.7
+    - numpy
+    - scipy
+    - pip
+  run:
+    - python >=3.7
+    - pandas
+
+tests:
+  - python:
+      imports:
+        - pandas_streaming
+      pip_check: true
+
+about:
+  summary: Array (and numpy) API for ONNX
+  license: MIT
+  license_file: LICENSE.txt
+  homepage: https://github.com/sdpython/pandas-streaming
+
+extra:
+  recipe-maintainers:
+    - janjagusch

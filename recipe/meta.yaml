@@ -20,6 +20,7 @@ requirements:
     - numpy
     - scipy
     - pip
+    - setuptools
   run:
     - python >={{ python_min }}
     - pandas

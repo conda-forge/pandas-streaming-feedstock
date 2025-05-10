@@ -1,29 +1,28 @@
 {% set name = "pandas-streaming" %}
-{% set version = "0.2.175" %}
-
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/sdpython/pandas_streaming/archive/refs/tags/v175.tar.gz  # unfortunately the GitHub tags do not match the PyPI tags and the PyPI release doesn't contain an sdist
-  sha256: 9d08acc7d5a87f3da6d66a3ad8728bdba2499d4cccdbb9720a4aa2b7f86f6d4a
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pandas_streaming-{{ version }}.tar.gz
+  sha256: ad34c07cd271ea43832962f9eef9e16b3b8cd281748a55de95c2719fc7f7aae9
 
 build:
-  number: 3
-  script: {{ PYTHON }} -m pip install . -vv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
-    - python
-    - pip
-    - pyquickhelper
-  run:
-    - python
+    - python >=3.7
     - numpy
+    - scipy
+    - pip
+  run:
+    - python >=3.7
     - pandas
-    - ijson
 
 test:
   imports:
@@ -34,8 +33,8 @@ test:
     - pip
 
 about:
-  home: http://www.xavierdupre.fr/app/pandas_streaming/helpsphinx/index.html
-  summary: Streaming API for pandas applied to big datasets
+  home: https://github.com/sdpython/pandas-streaming
+  summary: Array (and numpy) API for ONNX
   license: MIT
   license_file: LICENSE.txt
 

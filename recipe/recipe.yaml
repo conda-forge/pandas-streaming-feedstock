@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pandas-streaming
-  version: 0.5.1
+  version: "0.5.2"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pandas_streaming-${{ version }}.tar.gz
-  sha256: ad34c07cd271ea43832962f9eef9e16b3b8cd281748a55de95c2719fc7f7aae9
+  sha256: 18022bed8adcc55db17ed4851be26de3d6fca5888152c674f82df78c5199f9fd
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
